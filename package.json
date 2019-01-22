@@ -1,0 +1,27 @@
+{
+  "name": "bhyve_help",
+  "version": "1.0.0",
+  "description": "B-hyve help page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JCBenR/bhyve_help.git"
+  },
+  "keywords": [
+    "b-hyve",
+    "help"
+  ],
+  "author": "Justin Siebenhaar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JCBenR/bhyve_help/issues"
+  },
+  "homepage": "https://github.com/JCBenR/bhyve_help#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.6"
+  }
+}
