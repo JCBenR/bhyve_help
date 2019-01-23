@@ -1,0 +1,53 @@
+<% include ./partials/add_header %>
+
+
+<h1>Enter A New Question and Answer</h1>
+<p>Please fill out all fields</p>
+
+<h2>Which Product(s) is this question applicable to</h2>
+<p>Select at least one</p>
+
+<div class="products">
+<div class="ui checkbox">
+        <input type="checkbox" value="General">
+        <label>General</label>
+</div>
+<div class="ui checkbox">
+        <input type="checkbox" value="WT25">
+        <label>Indoor/Outoor Underground (WT-25)</label>
+</div>
+<div class="ui checkbox">
+        <input type="checkbox" value="WT15">
+        <label>Indoor Underground (WT-15)</label>
+</div>
+<div class="ui checkbox">
+        <input type="checkbox" value="HT25">
+        <label>Hose Faucet (HT-25)</label>
+</div>
+<div class="ui checkbox">
+        <input type="checkbox" value="Hub">
+        <label>Bluetooth Hub</label>
+</div>
+</div>
+
+
+
+<div class="ui selection dropdown">
+    <input type="hidden" name="category">
+    <i class="dropdown icon"></i>
+    <div class="default text">Cateogry</div>
+    <div class="menu">
+      <div class="item" data-value="general">General</div>
+      <div class="item" data-value="programming">Programming</div>
+      <div class="item" data-value="install">Installation</div>
+      <div class="item" data-value="pairing">Pairing</div>
+      <div class="item" data-value="advanced">Advanced</div>
+    </div>
+</div>
+
+
+<script>
+    $('.ui.dropdown').dropdown();
+</script>
+
+<% include ./partials/footer %>

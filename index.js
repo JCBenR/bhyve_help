@@ -27,6 +27,7 @@ app.get("/", function(req, res){
     res.redirect("/help")
 });
 
+//INDEX ROUTE
 app.get("/help", function(req, res){
     Blog.find({}, function(err, blogs){
         if(err){
@@ -36,5 +37,10 @@ app.get("/help", function(req, res){
         };
     })    
 })
+
+//NEW ROUTE
+app.get("/help/new", function(req, res){
+    res.render('new');
+});
 
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));
