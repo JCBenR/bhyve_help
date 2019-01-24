@@ -1,0 +1,3 @@
+a couple important things I found out doing this:
+
+1. file paths gave me some trouble. the key is that we've set the static file director in index.js to be public (which is common practice). I just need to make sure i'm making files in their appropriate directories therein and linking to them correct. See how i linked to quillapp.js in the footer.ejs partial. I had to create the JS folder in PUBLIC and then add the app there. This is the same with the stylesheets (see how new.css is linked to add_header.ejs).

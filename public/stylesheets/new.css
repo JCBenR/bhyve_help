@@ -1,4 +1,14 @@
-.checkbox {
-    display: flex;
-    align-items: center;
+body {
+    margin: 0 auto;
+    padding: 30px;
+}
+
+#ql-box {
+    height: 400px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+#button-box {
+    padding: 50px;
 }
