@@ -7,54 +7,157 @@
 <h2>Which Product(s) is this question applicable to</h2>
 <p>Select at least one</p>
 
+<!-- Product Selection Area -->
 <div class="products">
+    <div class="proSect">
+        <label for=""><h3>General</h3></label>
         <div class="ui checkbox">
-                <input type="checkbox" value="General">
-                <label>General</label>
+            <input type="checkbox" value="General">
+            <label>General</label>
         </div><br>
         <div class="ui checkbox">
-                <input type="checkbox" value="WT25">
-                <label>Indoor/Outoor Underground (WT-25)</label>
+            <input type="checkbox" value="WT25">
+            <label>Indoor/Outoor Underground (WT-25)</label>
         </div><br>
         <div class="ui checkbox">
-                <input type="checkbox" value="WT15">
-                <label>Indoor Underground (WT-15)</label>
+            <input type="checkbox" value="WT15">
+            <label>Indoor Underground (WT-15)</label>
         </div><br>
         <div class="ui checkbox">
-                <input type="checkbox" value="HT25">
-                <label>Hose Faucet (HT-25)</label>
+            <input type="checkbox" value="HT25">
+            <label>Hose Faucet (HT-25)</label>
         </div><br>
         <div class="ui checkbox">
-                <input type="checkbox" value="Hub">
-                <label>Bluetooth Hub!</label>
+            <input type="checkbox" value="Hub">
+            <label>Bluetooth Hub!</label>
         </div><br>
+    </div>
+
+    <div class="proSect">
+        <label for=""><h3>Indoor/Outoor Underground (WT-25)</h3></label>
+        <div class="ui checkbox">
+            <input type="checkbox" value="General">
+            <label>General</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="WT25">
+            <label>Indoor/Outoor Underground (WT-25)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="WT15">
+            <label>Indoor Underground (WT-15)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="HT25">
+            <label>Hose Faucet (HT-25)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="Hub">
+            <label>Bluetooth Hub!</label>
+        </div><br>
+    </div>
+
+    <div class="proSect">
+        <label for=""><h3>Indoor Underground (WT-15)</h3></label>
+        <div class="ui checkbox">
+            <input type="checkbox" value="General">
+            <label>General</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="WT25">
+            <label>Indoor/Outoor Underground (WT-25)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="WT15">
+            <label>Indoor Underground (WT-15)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="HT25">
+            <label>Hose Faucet (HT-25)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="Hub">
+            <label>Bluetooth Hub!</label>
+        </div><br>
+    </div>
+
+    <div class="proSect">
+        <label for=""><h3>Hose Faucet (HT-25)</h3></label>
+        <div class="ui checkbox">
+            <input type="checkbox" value="General">
+            <label>General</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="WT25">
+            <label>Indoor/Outoor Underground (WT-25)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="WT15">
+            <label>Indoor Underground (WT-15)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="HT25">
+            <label>Hose Faucet (HT-25)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="Hub">
+            <label>Bluetooth Hub!</label>
+        </div><br>
+    </div>
+
+    <div class="proSect">
+        <label for=""><h3>Bluetooth Hub!</h3></label>
+        <div class="ui checkbox">
+            <input type="checkbox" value="General">
+            <label>General</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="WT25">
+            <label>Indoor/Outoor Underground (WT-25)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="WT15">
+            <label>Indoor Underground (WT-15)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="HT25">
+            <label>Hose Faucet (HT-25)</label>
+        </div><br>
+        <div class="ui checkbox">
+            <input type="checkbox" value="Hub">
+            <label>Bluetooth Hub!</label>
+        </div><br>
+    </div>
+
 </div>
 
-<input type="text" id="sQues" placeholder="Question being answered">
+<!-- Question Section -->
+<div class="ui fluid form">
+    <div class="field">
+        <label ><h2 class="headlabel">Question Being Answered</h2></label>   
+        <textarea name="" id="" rows="2" placeholder="enter text here"></textarea>
+    </div>
+</div>
 
-<div id="ql-box">
+<!-- Quill JS Editor -->
+<div id="ql-box" class="ui fluid form">
+    <label><h2 class="headlabel">Response</h2></label>
     <div id="editor">
         <p>Hello world</p>
         <p>some initial <strong>bold</strong> text</p>
         <p><br></p>
     </div>
 
+    <!-- Make Live Section -->
+    <div class="ui toggle checkbox" id="makelive">
+        <input type="checkbox" value="live" id="check1">
+        <label><h2>Make Live?</h2></label>
+    </div>
+
+    <!-- Save & Delete Buttons -->
     <div id="button-box">
         <button class="ui positive basic button">Save</button>
         <button class="ui negative basic button">Delete</button>
-    </div>
-</div>
-
-<div class="ui selection dropdown">
-    <input type="hidden" name="category">
-    <i class="dropdown icon"></i>
-    <div class="default text">Cateogry</div>
-    <div class="menu">
-      <div class="item" data-value="general">General</div>
-      <div class="item" data-value="programming">Programming</div>
-      <div class="item" data-value="install">Installation</div>
-      <div class="item" data-value="pairing">Pairing</div>
-      <div class="item" data-value="advanced">Advanced</div>
     </div>
 </div>
 
