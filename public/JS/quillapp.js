@@ -18,10 +18,9 @@ var quill = new Quill('#editor', {
 function test1ab (){
     var bugs = document.querySelectorAll('input[type=checkbox]:checked');
     var bugs2a = [];
-    bugs.forEach(function(item){
+    bugs.forEach((item) => {
         var val = item.name + ": " + item.value ;
         bugs2a.push(val);
     });
-    console.log(bugs2a);
+    console.log(JSON.stringify(bugs2a));
 };
-
