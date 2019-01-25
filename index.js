@@ -14,6 +14,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 //MONGOOSE MODEL CONFIG
 var helpSchema = new mongoose.Schema({
+    products: Array,
     question: String,
     answer: String,
     date: {type: Date, default: Date.now},

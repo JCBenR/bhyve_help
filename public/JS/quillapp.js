@@ -15,4 +15,13 @@ var quill = new Quill('#editor', {
     theme: 'snow'
 });
 
+function test1ab (){
+    var bugs = document.querySelectorAll('input[type=checkbox]:checked');
+    var bugs2a = [];
+    bugs.forEach(function(item){
+        var val = item.name + ": " + item.value ;
+        bugs2a.push(val);
+    });
+    console.log(bugs2a);
+};
 
