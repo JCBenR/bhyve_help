@@ -15,12 +15,21 @@ var quill = new Quill('#editor', {
     theme: 'snow'
 });
 
+
 function test1ab (){
     var bugs = document.querySelectorAll('input[type=checkbox]:checked');
-    var bugs2a = [];
+    var bugs2a = {};
     bugs.forEach((item) => {
-        var val = item.name + ": " + item.value ;
-        bugs2a.push(val);
+        bugs2a[item.name] = item.value
     });
-    console.log(JSON.stringify(bugs2a));
+    var data = {
+        method: 'POST',
+        data: {"test": "hello world"},
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+    fetch('/help/new', data)
+
+    return (JSON.stringify(bugs2a));
 };
