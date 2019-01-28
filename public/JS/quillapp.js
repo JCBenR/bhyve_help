@@ -28,15 +28,20 @@ function test1ab (){
     var bugs2a = {};
     var quesB;
     var ansB;
+    var isLive;
+
     bugs.forEach((item) => {
         bugs2a[item.name] = item.value
     });
     quesB = document.getElementById('question1').value;
     ansB = quill.root.innerHTML;
+    isLive = document.getElementById('check1').checked;
+    
     const post = {
         categories: bugs2a,
         title: quesB,
-        body: ansB, 
+        body: ansB,
+        live: isLive, 
         userId: 3
     }
     
@@ -48,7 +53,7 @@ function test1ab (){
                 'Content-Type': 'application/json'
             })
         }
-        return fetch(`https://jsonplaceholder.typicode.com/posts`, options)
+        return fetch(`/help/new`, options)
             .then(res => res.json())
             .then(res => console.log(res))
             .catch(error => console.error(`Error: ${error}`))
@@ -56,3 +61,4 @@ function test1ab (){
     
     newPost(post);
 };
+

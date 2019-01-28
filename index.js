@@ -11,8 +11,9 @@ mongoose.connect('mongodb://localhost/bhyve_help', { useNewUrlParser: true });
 //APP CONFIG
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+
 
 //MONGOOSE MODEL CONFIG
 var helpSchema = new mongoose.Schema({
@@ -51,6 +52,18 @@ app.get("/help/new", function(req, res){
 app.post("/help/new", function(req,res){
     console.log('res body:', res.body);
     console.log('req body:', req.body);
+    res.send({
+        type: "POST",
+        title: req.body.title,
+        live: req.body.live
+    });
+    let newPost = new Blog({
+        products: req.body.categories,
+        question: req.body.title,
+        answer: req.body.body,
+        display: req.body.live
+    });
+    newPost.save();
 });
 
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));
