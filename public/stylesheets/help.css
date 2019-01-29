@@ -1,3 +1,20 @@
 body {
-    color: blue;
+    font-family: 'Raleway', sans-serif;
+}
+
+#answers {
+    max-width: 80pc;
+    margin: 0 auto;
+}
+
+#ques {
+    font-size: 1.5rem;
+}
+
+#ans {
+    margin-left: 25px;
+}
+
+#quillText {
+    justify-content: space-evenly;
 }

@@ -4,12 +4,22 @@
 <h1>B-hyve Help Page</h1>
 
 <% blogs.forEach(function(blog){ %>
-    <div>
-        <h2><%=blog.question%></h2>
-        <h2><%=blog.answer%></h2>
-        <p>Updated: <%=blog.date%></p>
+    <div id="answers" class="ui styled fluid accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            <span id="ques"><%=blog.question%></span>
+        </div>
+        <div id="ans" class="content">
+            <p id="quillText"><%-blog.answer%></p>
+            <p>Last Updated: <%=blog.date%></p>
+        </div>
     </div>
 
 <% }); %>
+
+
+<script>
+    $('.ui.accordion').accordion();
+</script>
 
 <% include ./partials/footer %>
