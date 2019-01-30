@@ -17,23 +17,17 @@ var quill = new Quill('#editor', {
     theme: 'snow'
 });
 
-const getPosts = () => {
-    return fetch(`https://jsonplaceholder.typicode.com/posts`)
-    .then(res => res.json())
-    .then(posts => console.log(posts))
-}
-
-
 
 function test1ab (){
-    var bugs = document.querySelectorAll('input[type=checkbox]:checked');
-    var bugs2a = {};
+    var bugs = document.querySelectorAll('input[type=checkbox]:checked:not(#check1)'); //this looks for all checkboxes that are checked, but because #check1 (the make live toggle), is also a checkbox, it was returning that as well to the array. this let me specifically tell it not to inclulde that input.
+    var bugs2a = [];
     var quesB;
     var ansB;
     var isLive;
 
     bugs.forEach((item) => {
-        bugs2a[item.name] = item.value
+        bugs2a.push([item.name, item.value]) //not sure these items need to be an array inside of an array.
+        // [item.name] = item.value
     });
     quesB = document.getElementById('question1').value;
     ansB = quill.root.innerHTML;
