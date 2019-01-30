@@ -1,3 +1,4 @@
+
 var toolbarOptions = [
     [{'header': [1,2,3,4, false]}],
     [{'list': 'ordered'}, {'list': 'bullet'}],
@@ -9,8 +10,9 @@ var toolbarOptions = [
 
 var quill = new Quill('#editor', {
     modules: {
-        toolbar: toolbarOptions
+        toolbar: toolbarOptions,
     },
+    placeholder: 'compose an epic...',
 
     theme: 'snow'
 });

@@ -3,8 +3,7 @@ var express = require("express"),
     mongoose = require("mongoose"),
     bodyParser = require("body-parser"),
     port = 5000,
-    fetch = require('fetch');
-    
+    fetch = require('fetch');    
 
 mongoose.connect('mongodb://localhost/bhyve_help', { useNewUrlParser: true });
 
