@@ -1,5 +1,18 @@
 <% include ./partials/header %>
 
+<!-- this isn't sticky -->
+<div class="ui segment" id="header">
+    <div class="ui sticky">
+    <div class="ui five item menu">
+        <a class="item" href="#general">general</a>
+        <a class="item" href="#wt25">wt25</a>
+        <a class="item" href="#wt15">wt15</a>
+        <a class="item" href="#ht25">ht25</a>
+        <a class="item" href="#hub">bluetooth hub</a>
+    </div>
+</div>  
+</div>
+
 
 <h1>B-hyve Help Page</h1>
 
@@ -14,12 +27,90 @@
             <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
         </div>
     </div>
-
 <% }); %>
+
+<h2 id="general">General</h2>
+
+<% blogsGen.forEach(function(blog){ %>
+    <div id="answers" class="ui styled fluid accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            <span id="ques"><%=blog.question%></span>
+        </div>
+        <div id="ans" class="content">
+            <p id="quillText"><%-blog.answer%></p>
+            <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+        </div>
+    </div>
+<% }); %>
+
+<h2 id="wt15">WT15 Entries</h2>
+
+<% blogswt15.forEach(function(blog){ %>
+    <div id="answers" class="ui styled fluid accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            <span id="ques"><%=blog.question%></span>
+        </div>
+        <div id="ans" class="content">
+            <p id="quillText"><%-blog.answer%></p>
+            <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+        </div>
+    </div>
+<% }); %>
+
+<h2 id="wt25">WT25 Entries</h2>
+
+<% blogswt25.forEach(function(blog){ %>
+    <div id="answers" class="ui styled fluid accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            <span id="ques"><%=blog.question%></span>
+        </div>
+        <div id="ans" class="content">
+            <p id="quillText"><%-blog.answer%></p>
+            <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+        </div>
+    </div>
+<% }); %>
+
+<h2 id="ht25">HT25 Entries</h2>
+
+<% blogsht25.forEach(function(blog){ %>
+    <div id="answers" class="ui styled fluid accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            <span id="ques"><%=blog.question%><%=blog.products.subcat%></span>
+        </div>
+        <div id="ans" class="content">
+            <p id="quillText"><%-blog.answer%></p>
+            <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+        </div>
+    </div>
+    <!-- this console.log is to see that we're getting the attributes for products, and we are. but idk how to target them. -->
+<% console.log(blog.products)}); %>
+
+
+<h2 id="hub">Bluetooth Hub Entries</h2>
+
+<% blogsHub.forEach(function(blog){ %>
+    <div id="answers" class="ui styled fluid accordion">
+        <div class="title">
+            <i class="dropdown icon"></i>
+            <span id="ques"><%=blog.question%></span>
+        </div>
+        <div id="ans" class="content">
+            <p id="quillText"><%-blog.answer%></p>
+            <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+        </div>
+    </div>
+<% }); %>
+
 
 
 <script>
     $('.ui.accordion').accordion();
+    $('.ui.stick').sticky({context: 'header'});
 </script>
 
 <% include ./partials/footer %>

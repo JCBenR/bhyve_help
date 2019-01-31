@@ -33,14 +33,63 @@ app.get("/", function(req, res){
 
 //INDEX ROUTE
 app.get("/help", function(req, res){
-    Blog.find({}, function(err, blogs){
+    Blog.find({'display': true}, function(err, blogs){
         if(err){
             console.log(err);
         } else {
-            res.render("help", {blogs: blogs});
+            blogs = blogs;
         };
-    })    
-})
+
+        Blog.find({'display': true, "products.cat": "wt15"}, function(err, wt15){
+            if(err){
+                console.log(err);
+            } else {
+                blogswt15 = wt15;
+            };
+
+            Blog.find({'display': true, "products.cat": "general"}, function(err, general){
+                if(err){
+                    console.log(err);
+                } else {
+                    blogsGen = general;
+                };
+
+                Blog.find({'display': true, "products.cat": "wt25"}, function(err, wt25){
+                    if(err){
+                        console.log(err);
+                    } else {
+                        blogswt25 = wt25;
+                    };
+
+                    Blog.find({'display': true, "products.cat": "ht25"}, function(err, ht25){
+                        if(err){
+                            console.log(err);
+                        } else {
+                            blogsht25 = ht25;
+                        };
+
+                        Blog.find({'display': true, "products.cat": "hub"}, function(err, hub){
+                            if(err){
+                                console.log(err);
+                            } else {
+                                blogsHub = hub;
+                            };
+
+    res.render("help", {blogs: blogs, blogswt15:blogswt15, blogsGen:blogsGen, blogswt25:blogswt25, blogsht25:blogsht25, blogsHub:blogsHub});
+});});});});});});});
+
+            
+
+//WT15 ROUTE
+// app.get("/help", function(req, res){
+//     Blog.find({"products.subcat": "WT15"}, function(err, blogsw){
+//         if(err){
+//             console.log(err);
+//         } else {
+//             res.render("help", {blogsw: blogsw});
+//         };
+//     });
+// });
 
 //NEW ROUTE
 app.get("/help/new", function(req, res){

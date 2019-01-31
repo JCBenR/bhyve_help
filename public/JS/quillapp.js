@@ -26,7 +26,7 @@ function test1ab (){
     var isLive;
 
     bugs.forEach((item) => {
-        bugs2a.push([item.name, item.value]) //not sure these items need to be an array inside of an array.
+        bugs2a.push({cat: item.name, subcat: item.value}) //this was initially an array '[]', but i changed it to an object with '{}' instead and it worked giving the item they key names.
         // [item.name] = item.value
     });
     quesB = document.getElementById('question1').value;
@@ -37,7 +37,7 @@ function test1ab (){
         categories: bugs2a,
         title: quesB,
         body: ansB,
-        live: isLive, 
+        live: isLive,
         userId: 3
     }
     
