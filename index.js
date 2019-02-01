@@ -114,4 +114,29 @@ app.post("/help/new", function(req,res){
     newPost.save();
 });
 
+//SHOW INDIVIDUAL POST ROUTE
+app.get("/help/:id", function(req, res){
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err){
+            console.log(err);
+            res.redirect("/help");
+        } else { 
+            res.render("show", {blog: foundBlog})
+        }
+    })
+});
+
+//EDIT ROUTE
+app.get("/help/:id/edit", function(req, res){
+    Blog.findById(req.params.id, function(err, foundBlog){
+        if(err){
+            res.redirect("/help");
+        } else {
+            // console.log(foundBlog);
+            console.log(foundBlog.products);
+            res.render("edit", {blog:foundBlog});
+        }
+    });
+});
+
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));

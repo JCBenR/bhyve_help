@@ -1,7 +1,7 @@
 <% include ./partials/add_header %>
 
 
-<h1>Enter A New Question and Answer</h1>
+<h1>Edit <%=blog.question%> </h1>
 <p>Please fill out all fields</p>
 
 <h2>Which Product(s) is this question applicable to</h2>
@@ -129,42 +129,6 @@
         </div><br>
     </div>
 
-    <div class="proSect">
-        <label for=""><h3>Biking</h3></label>
-        <div class="ui checkbox">
-            <input type="checkbox" name="biking" value="road">
-            <label>Road Biking</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="biking" value="racing">
-            <label>Racing</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="biking" value="mountian">
-            <label>Mountain Biking</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="biking" value="extreme">
-            <label>Extreme Biking</label>
-        </div><br>
-    </div>
-    
-    <div class="proSect">
-        <label for=""><h3>Sking</h3></label>
-        <div class="ui checkbox">
-            <input type="checkbox" name="skiing" value="downhill">
-            <label>Downhill</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="skiing" value="crossCountry">
-            <label>Cross Country</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="skiing" value="snowboard">
-            <label>Snowboarding</label>
-        </div><br>
-    </div>   
-
 </div>
 
 <!-- Question Section -->
@@ -172,7 +136,7 @@
     <div class="ui form">
         <div class="field">
             <label for="question"><h2 class="headlabel">Question Being Answered</h2></label>   
-            <textarea name="question" id="question1" rows="2" placeholder="enter text here" default="some text"></textarea>
+            <input name="question" id="question1" placeholder="enter question here" value="<%=blog.question%>"></input>
         </div>
     </div>
 </div>
@@ -181,12 +145,12 @@
 <div id="ql-box" class="ui fluid form">
     <label><h2 class="headlabel">Response</h2></label>
     <div id="editor">
-        <p><br></p>
+        <%-blog.answer%>
     </div>
 
     <!-- Make Live Section -->
     <div class="ui toggle checkbox" id="makelive">
-        <input type="checkbox" value="live" id="check1">
+        <input type="checkbox" value="<%=blog.display%>" id="check1">
         <label><h2>Make Live?</h2></label>
     </div>
 

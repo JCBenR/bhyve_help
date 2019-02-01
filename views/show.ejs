@@ -1,0 +1,10 @@
+<% include ./partials/header %>
+<div class="ui main text container segment">
+    <div class="ui huge header"><%=blog.question%></div>
+    <div class="ui top attached">
+        <p id="quillText"><%-blog.answer%></p>
+        <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+    </div>
+</div>
+
+<% include ./partials/footer %>
