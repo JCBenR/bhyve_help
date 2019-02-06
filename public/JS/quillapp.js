@@ -19,32 +19,31 @@ var quill = new Quill('#editor', {
 
 
 function test1ab (){
-    var bugs = document.querySelectorAll('input[type=checkbox]:checked:not(#check1)'); //this looks for all checkboxes that are checked, but because #check1 (the make live toggle), is also a checkbox, it was returning that as well to the array. this let me specifically tell it not to inclulde that input.
-    var bugs2a = [];
+    var tugs = document.querySelectorAll('a[class="ui label transition visible"]'); //this looks for all checkboxes that are checked, but because #check1 (the make live toggle), is also a checkbox, it was returning that as well to the array. this let me specifically tell it not to inclulde that input.
+    var tugs2a = [];
     var quesB;
     var ansB;
     var isLive;
 
-    bugs.forEach((item) => {
-        bugs2a.push({cat: item.name, subcat: item.value}) //this was initially an array '[]', but i changed it to an object with '{}' instead and it worked giving the item they key names.
-        // [item.name] = item.value
+    tugs.forEach((item) => {
+        tugs2a.push({cat: item.innerText})
     });
     quesB = document.getElementById('question1').value;
     ansB = quill.root.innerHTML;
     isLive = document.getElementById('check1').checked;
     
     const post = {
-        categories: bugs2a,
+        categories: tugs2a,
         title: quesB,
         body: ansB,
         live: isLive,
         userId: 3
     }
     
-    const newPost = post => {
+    const newPost = post1 => {
         const options = {
             method: "POST",
-            body: JSON.stringify(post),
+            body: JSON.stringify(post1),
             headers: new Headers({
                 'Content-Type': 'application/json'
             })
@@ -54,7 +53,45 @@ function test1ab (){
             .then(res => console.log(res))
             .catch(error => console.error(`Error: ${error}`))
     };
-    
+    console.log(tugs2a);
     newPost(post);
 };
 
+function test2ab (){
+    var tugs = document.querySelectorAll('a[class="ui label transition visible"]'); //this looks for all checkboxes that are checked, but because #check1 (the make live toggle), is also a checkbox, it was returning that as well to the array. this let me specifically tell it not to inclulde that input.
+    var tugs2a = [];
+    var quesB;
+    var ansB;
+    var isLive;
+
+    tugs.forEach((item) => {
+        tugs2a.push({cat: item.innerText})
+    });
+    quesB = document.getElementById('question1').value;
+    ansB = quill.root.innerHTML;
+    isLive = document.getElementById('check1').checked;
+    
+    const post = {
+        categories: tugs2a,
+        title: quesB,
+        body: ansB,
+        live: isLive,
+        userId: 3
+    }
+    
+    const newPost = post => {
+        const options = {
+            method: "PUT",
+            body: JSON.stringify(post),
+            headers: new Headers({
+                'Content-Type': 'application/json'
+            })
+        }
+        return fetch('/help/:_id', options)
+            .then(res => res.json())
+            .then(res => console.log(res))
+            .catch(error => console.error(`Error: ${error}`))
+    };
+    console.log(tugs2a);
+    newPost(post);
+};

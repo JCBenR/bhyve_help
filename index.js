@@ -40,35 +40,35 @@ app.get("/help", function(req, res){
             blogs = blogs;
         };
 
-        Blog.find({'display': true, "products.cat": "wt15"}, function(err, wt15){
+        Blog.find({'display': true, "products.cat": "WT15"}, function(err, wt15){
             if(err){
                 console.log(err);
             } else {
                 blogswt15 = wt15;
             };
 
-            Blog.find({'display': true, "products.cat": "general"}, function(err, general){
+            Blog.find({'display': true, "products.cat": "General"}, function(err, general){
                 if(err){
                     console.log(err);
                 } else {
                     blogsGen = general;
                 };
 
-                Blog.find({'display': true, "products.cat": "wt25"}, function(err, wt25){
+                Blog.find({'display': true, "products.cat": "WT25"}, function(err, wt25){
                     if(err){
                         console.log(err);
                     } else {
                         blogswt25 = wt25;
                     };
 
-                    Blog.find({'display': true, "products.cat": "ht25"}, function(err, ht25){
+                    Blog.find({'display': true, "products.cat": "HT25"}, function(err, ht25){
                         if(err){
                             console.log(err);
                         } else {
                             blogsht25 = ht25;
                         };
 
-                        Blog.find({'display': true, "products.cat": "hub"}, function(err, hub){
+                        Blog.find({'display': true, "products.cat": "Hub"}, function(err, hub){
                             if(err){
                                 console.log(err);
                             } else {
@@ -87,18 +87,19 @@ app.get("/help/new", function(req, res){
 app.post("/help/new", function(req,res){
     console.log('res body:', res.body);
     console.log('req body:', req.body);
-    res.send({
-        type: "POST",
-        title: req.body.title,
-        live: req.body.live
-    });
-    let newPost = new Blog({
+    // res.send({
+    //     type: "POST",
+    //     title: req.body.title,
+    //     live: req.body.live
+    // });
+    let newPost2 = new Blog({
         products: req.body.categories,
         question: req.body.title,
         answer: req.body.body,
         display: req.body.live
     });
-    newPost.save();
+    console.log(newPost2);
+    newPost2.save();
 });
 
 //SHOW INDIVIDUAL POST ROUTE
@@ -123,6 +124,17 @@ app.get("/help/:id/edit", function(req, res){
             res.render("edit", {blog:foundBlog});
         }
     });
+});
+
+//UPDATE ROUTE
+app.put("/help/:id", function(req, res){
+    Blog.findByIdAndUpdate(req.params.id, req.body, function(err, updatedBlog){
+        if(err){
+            res.redirect("/help");
+        } else {
+            res.redirect("/help/" + req.params.id);
+        }
+    })
 });
 
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));

@@ -22,3 +22,9 @@ body {
 img {
     max-width: 50vw;
 }
+
+#singlePost {
+    width: 90vw;
+    margin: 0 auto;
+    text-align: center;
+}

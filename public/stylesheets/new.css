@@ -21,10 +21,15 @@ body {
     min-height: 400px;
 }
 
+
 #makelive {
     margin-bottom: 20px
 }
 
 #check1 {
     background-color: green;
+}
+
+#editor img {
+    max-width: 50pc;
 }

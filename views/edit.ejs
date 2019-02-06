@@ -8,145 +8,34 @@
 <p>Select at least one</p>
 
 <!-- Product Selection Area -->
-<div class="products">
-    <div class="proSect">
-        <label for=""><h3>General</h3></label>
-        <div class="ui checkbox">
-            <input type="checkbox" name="general" value="General">
-            <label>General</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="general" value="WT25">
-            <label>Indoor/Outoor Underground (WT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="general" value="WT15">
-            <label>Indoor Underground (WT-15)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="general" value="HT25">
-            <label>Hose Faucet (HT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="general" value="Hub">
-            <label>Bluetooth Hub!</label>
-        </div><br>
+<div class="ui form">
+    <div class="field">
+        <select multiple class="ui dropdown" name="cat" id="cat">
+            <option value="General">General</option>
+            <option value="HT25">HT25</option>
+            <option value="WT15">WT15</option>
+            <option value="WT25">WT25</option>
+            <option value="Hub">Hub</option>
+        </select>
     </div>
-
-    <div class="proSect">
-        <label for=""><h3>Indoor/Outoor Underground (WT-25)</h3></label>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt25" value="General">
-            <label>General</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt25" value="WT25">
-            <label>Indoor/Outoor Underground (WT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt25" value="WT15">
-            <label>Indoor Underground (WT-15)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt25" value="HT25">
-            <label>Hose Faucet (HT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt25" value="Hub">
-            <label>Bluetooth Hub!</label>
-        </div><br>
-    </div>
-
-    <div class="proSect">
-        <label for=""><h3>Indoor Underground (WT-15)</h3></label>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt15" value="General">
-            <label>General</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt15" value="WT25">
-            <label>Indoor/Outoor Underground (WT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt15" value="WT15">
-            <label>Indoor Underground (WT-15)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt15" value="HT25">
-            <label>Hose Faucet (HT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="wt15" value="Hub">
-            <label>Bluetooth Hub!</label>
-        </div><br>
-    </div>
-
-    <div class="proSect">
-        <label for=""><h3>Hose Faucet (HT-25)</h3></label>
-        <div class="ui checkbox">
-            <input type="checkbox" name="ht25" value="General">
-            <label>General</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="ht25" value="WT25">
-            <label>Indoor/Outoor Underground (WT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="ht25" value="WT15">
-            <label>Indoor Underground (WT-15)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="ht25" value="HT25">
-            <label>Hose Faucet (HT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="ht25" value="Hub">
-            <label>Bluetooth Hub!</label>
-        </div><br>
-    </div>
-
-    <div class="proSect">
-        <label for=""><h3>Bluetooth Hub!</h3></label>
-        <div class="ui checkbox">
-            <input type="checkbox" name="hub" value="General">
-            <label>General</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="hub" value="WT25">
-            <label>Indoor/Outoor Underground (WT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="hub" value="WT15">
-            <label>Indoor Underground (WT-15)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="hub" value="HT25">
-            <label>Hose Faucet (HT-25)</label>
-        </div><br>
-        <div class="ui checkbox">
-            <input type="checkbox" name="hub" value="Hub">
-            <label>Bluetooth Hub!</label>
-        </div><br>
-    </div>
-
 </div>
 
 <!-- Question Section -->
-<div class="ui fluid container">
-    <div class="ui form">
-        <div class="field">
-            <label for="question"><h2 class="headlabel">Question Being Answered</h2></label>   
-            <input name="question" id="question1" placeholder="enter question here" value="<%=blog.question%>"></input>
+    <div class="ui fluid container">
+        <div class="ui form">
+            <div class="field">
+                <label for="question"><h2 class="headlabel">Question Being Answered</h2></label>   
+                <input name="question" id="question1" placeholder="enter question here" value="<%=blog.question%>"></input>
+            </div>
         </div>
     </div>
-</div>
 
 <!-- Quill JS Editor -->
-<div id="ql-box" class="ui fluid form">
-    <label><h2 class="headlabel">Response</h2></label>
-    <div id="editor">
-        <%-blog.answer%>
-    </div>
+    <div id="ql-box" class="ui fluid form">
+        <label><h2 class="headlabel">Response</h2></label>
+        <div id="editor">
+            <%-blog.answer%>
+        </div>
 
     <!-- Make Live Section -->
     <div class="ui toggle checkbox" id="makelive">
@@ -156,7 +45,7 @@
 
     <!-- Save & Delete Buttons -->
     <div id="button-box">
-        <button class="ui positive basic button" onclick="test1ab()">Save</button>
+        <button class="ui positive basic button" onclick="test2ab()">Save</button>
         <button class="ui negative basic button">Delete</button>
     </div>
 </div>
