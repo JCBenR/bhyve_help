@@ -77,20 +77,7 @@ app.get("/help", function(req, res){
 
     res.render("help", {blogs: blogs, blogswt15:blogswt15, blogsGen:blogsGen, blogswt25:blogswt25, blogsht25:blogsht25, blogsHub:blogsHub});
 });});});});});});});
-
-            
-
-//WT15 ROUTE
-// app.get("/help", function(req, res){
-//     Blog.find({"products.subcat": "WT15"}, function(err, blogsw){
-//         if(err){
-//             console.log(err);
-//         } else {
-//             res.render("help", {blogsw: blogsw});
-//         };
-//     });
-// });
-
+        
 //NEW ROUTE
 app.get("/help/new", function(req, res){
     res.render('new');
@@ -132,7 +119,6 @@ app.get("/help/:id/edit", function(req, res){
         if(err){
             res.redirect("/help");
         } else {
-            // console.log(foundBlog);
             console.log(foundBlog.products);
             res.render("edit", {blog:foundBlog});
         }
