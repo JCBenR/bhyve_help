@@ -71,6 +71,7 @@ function test2ab (){
     ansB = quill.root.innerHTML;
     isLive = document.getElementById('check1').checked;
     
+    console.log(ansB);
     const post = {
         categories: tugs2a,
         title: quesB,
@@ -92,6 +93,5 @@ function test2ab (){
             .then(res => console.log(res))
             .catch(error => console.error(`Error: ${error}`))
     };
-    console.log(tugs2a);
     newPost(post);
 };

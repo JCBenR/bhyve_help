@@ -2,6 +2,7 @@ var express = require("express"),
     app     = express(),
     mongoose = require("mongoose"),
     bodyParser = require("body-parser"),
+    methodOverride = require("method-override"),
     port = 5000,
     fetch = require('fetch');    
 
@@ -12,7 +13,7 @@ app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
-
+app.use(methodOverride("_method"));
 
 //MONGOOSE MODEL CONFIG
 var helpSchema = new mongoose.Schema({
@@ -128,13 +129,14 @@ app.get("/help/:id/edit", function(req, res){
 
 //UPDATE ROUTE
 app.put("/help/:id", function(req, res){
-    Blog.findByIdAndUpdate(req.params.id, req.body, function(err, updatedBlog){
+    Blog.findOneAndUpdate({_id: req.params.id}, req.body, function(err, updatedBlog){
         if(err){
             res.redirect("/help");
         } else {
-            res.redirect("/help/" + req.params.id);
+            console.log(req.body.answer);
+            // res.redirect("/help/" + updatedBlog.id);
         }
-    })
+    });
 });
 
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));

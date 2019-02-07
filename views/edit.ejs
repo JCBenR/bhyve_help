@@ -6,7 +6,7 @@
 
 <h2>Which Product(s) is this question applicable to</h2>
 <p>Select at least one</p>
-
+<form action="/help/<%=blog._id%>?_method=PUT" method="POST">
 <!-- Product Selection Area -->
 <div class="ui form">
     <div class="field">
@@ -36,7 +36,8 @@
         <div id="editor">
             <%-blog.answer%>
         </div>
-
+    </div>
+    
     <!-- Make Live Section -->
     <div class="ui toggle checkbox" id="makelive">
         <input type="checkbox" value="<%=blog.display%>" id="check1">
@@ -48,8 +49,8 @@
         <button class="ui positive basic button" onclick="test2ab()">Save</button>
         <button class="ui negative basic button">Delete</button>
     </div>
-</div>
 
+</form>
 
 <script>
     $('.ui.dropdown').dropdown();
