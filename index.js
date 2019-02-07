@@ -121,7 +121,6 @@ app.get("/help/:id/edit", function(req, res){
         if(err){
             res.redirect("/help");
         } else {
-            console.log(foundBlog.products);
             res.render("edit", {blog:foundBlog});
         }
     });
@@ -129,14 +128,18 @@ app.get("/help/:id/edit", function(req, res){
 
 //UPDATE ROUTE
 app.put("/help/:id", function(req, res){
-    Blog.findOneAndUpdate({_id: req.params.id}, req.body, function(err, updatedBlog){
+    Blog.findByIdAndUpdate(req.params.id, req.body, function(err, updatedBlog){
         if(err){
             res.redirect("/help");
+            console.log(req.body);
         } else {
-            console.log(req.body.answer);
+            console.log(req.body);
+            console.log("the producdts are" + updatedBlog.products);
+            console.log("The display is" + updatedBlog.display);
+            console.log("The body is" + updatedBlog.body);
             // res.redirect("/help/" + updatedBlog.id);
         }
     });
-});
+    });
 
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));

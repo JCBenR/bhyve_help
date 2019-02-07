@@ -53,7 +53,6 @@ function test1ab (){
             .then(res => console.log(res))
             .catch(error => console.error(`Error: ${error}`))
     };
-    console.log(tugs2a);
     newPost(post);
 };
 
@@ -69,9 +68,8 @@ function test2ab (){
     });
     quesB = document.getElementById('question1').value;
     ansB = quill.root.innerHTML;
-    isLive = document.getElementById('check1').checked;
+    isLive = document.getElementById('check1').value;
     
-    console.log(ansB);
     const post = {
         categories: tugs2a,
         title: quesB,
@@ -80,7 +78,7 @@ function test2ab (){
         userId: 3
     }
     
-    const newPost = post => {
+      const newPost = post => {
         const options = {
             method: "PUT",
             body: JSON.stringify(post),
