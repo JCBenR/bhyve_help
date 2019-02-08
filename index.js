@@ -7,6 +7,8 @@ var express = require("express"),
     fetch = require('fetch');    
 
 mongoose.connect('mongodb://localhost/bhyve_help', { useNewUrlParser: true });
+mongoose.set('useFindAndModify', false);
+
 
 //APP CONFIG
 app.set("view engine", "ejs");
@@ -101,6 +103,7 @@ app.post("/help/new", function(req,res){
     });
     console.log(newPost2);
     newPost2.save();
+    res.redirect("/help");
 });
 
 //SHOW INDIVIDUAL POST ROUTE
@@ -128,18 +131,16 @@ app.get("/help/:id/edit", function(req, res){
 
 //UPDATE ROUTE
 app.put("/help/:id", function(req, res){
-    Blog.findByIdAndUpdate(req.params.id, req.body, function(err, updatedBlog){
+    console.log('res body:', res.body);
+    console.log('req body:', req.body.answer);
+    Blog.findOneAndUpdate({ _id: req.params.id }, req.body, { overwrite:true }, (err, updatedBlog)=>{
         if(err){
-            res.redirect("/help");
-            console.log(req.body);
+            console.log(err);
         } else {
-            console.log(req.body);
-            console.log("the producdts are" + updatedBlog.products);
-            console.log("The display is" + updatedBlog.display);
-            console.log("The body is" + updatedBlog.body);
-            // res.redirect("/help/" + updatedBlog.id);
+            console.log(updatedBlog);
+            res.redirect("/help/:id");
         }
     });
-    });
+});
 
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));

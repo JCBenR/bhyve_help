@@ -33,20 +33,20 @@
 <!-- Quill JS Editor -->
     <div id="ql-box" class="ui fluid form">
         <label><h2 class="headlabel">Response</h2></label>
-        <div id="editor">
+        <div id="editor" name="answer">
             <%-blog.answer%>
         </div>
     </div>
     
     <!-- Make Live Section -->
     <div class="ui toggle checkbox" id="makelive">
-        <input type="checkbox" value="<%=blog.display%>" id="check1">
+        <input type="checkbox" name="display" value="<%=blog.display%>" id="check1">
         <label><h2>Make Live?</h2></label>
     </div>
 
     <!-- Save & Delete Buttons -->
     <div id="button-box">
-        <button class="ui positive basic button" onclick="test2ab()">Save</button>
+        <button class="ui positive basic button" type="submit">Save</button>
         <button class="ui negative basic button">Delete</button>
     </div>
 

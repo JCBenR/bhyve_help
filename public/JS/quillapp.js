@@ -77,10 +77,11 @@ function test2ab (){
         live: isLive,
         userId: 3
     }
+    console.log(post);
     
       const newPost = post => {
         const options = {
-            method: "PUT",
+            method: "POST",
             body: JSON.stringify(post),
             headers: new Headers({
                 'Content-Type': 'application/json'
