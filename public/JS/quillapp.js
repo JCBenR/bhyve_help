@@ -71,7 +71,6 @@ function test2ab (){
     ansB = quill.root.innerHTML;
     isLive = document.getElementById('check1').checked;
     
-    console.log(ansB);
     const post = {
         categories: tugs2a,
         title: quesB,
