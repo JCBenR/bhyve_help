@@ -43,35 +43,35 @@ app.get("/help", function(req, res){
             blogs = blogs;
         };
 
-        Blog.find({'display': true, "products.cat": "WT15"}, function(err, wt15){
+        Blog.find({'display': true, "products": "WT15"}, function(err, wt15){
             if(err){
                 console.log(err);
             } else {
                 blogswt15 = wt15;
             };
 
-            Blog.find({'display': true, "products.cat": "General"}, function(err, general){
+            Blog.find({'display': true, "products": "General"}, function(err, general){
                 if(err){
                     console.log(err);
                 } else {
                     blogsGen = general;
                 };
 
-                Blog.find({'display': true, "products.cat": "WT25"}, function(err, wt25){
+                Blog.find({'display': true, "products": "WT25"}, function(err, wt25){
                     if(err){
                         console.log(err);
                     } else {
                         blogswt25 = wt25;
                     };
 
-                    Blog.find({'display': true, "products.cat": "HT25"}, function(err, ht25){
+                    Blog.find({'display': true, "products": "HT25"}, function(err, ht25){
                         if(err){
                             console.log(err);
                         } else {
                             blogsht25 = ht25;
                         };
 
-                        Blog.find({'display': true, "products.cat": "Hub"}, function(err, hub){
+                        Blog.find({'display': true, "products": "Hub"}, function(err, hub){
                             if(err){
                                 console.log(err);
                             } else {
@@ -87,20 +87,14 @@ app.get("/help/new", function(req, res){
 });
 
 //POST ROUTE
-app.post("/help/new", function(req,res){
-    // res.send({
-    //     type: "POST",
-    //     title: req.body.title,
-    //     live: req.body.live
-    // });
-    let newPost2 = new Blog({
-        products: req.body.categories,
-        question: req.body.title,
-        answer: req.body.body,
-        display: req.body.live
-    });
-    newPost2.save();
-    res.redirect("/help");
+app.post("/blogs", function(req, res){
+    Blog.create(req.body.blog, function(err, newBlog){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect("/help");
+        }
+    })
 });
 
 //SHOW INDIVIDUAL POST ROUTE
@@ -127,18 +121,13 @@ app.get("/help/:id/edit", function(req, res){
 
 //UPDATE ROUTE
 app.put("/help/:id", function(req, res){
-    Blog.findOneAndUpdate({_id: "5c5b4edfb4508702dfcdec0d"}, req.body);
-
-    console.log('req.params:', req.params);
-    console.log('req.body:', req.body)
-    // Blog.findOneAndUpdate({ _id: '5c52613ba0bb6b08666768a7' }, req.body, { overwrite:true }, (err, updatedBlog)=>{
-    //     if(err){
-    //         console.log('update route error', err);
-    //     } else {
-    //         console.log(updatedBlog);
-    //         res.redirect("/help/:id");
-    //     }
-    // });
+    Blog.findOneAndUpdate({_id: req.params.id}, req.body.blog, function(err, updatedBlog){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect("/help/" + req.params.id);
+        }
+    });
 });
 
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));

@@ -25,12 +25,12 @@
         <div id="ans" class="content">
             <p id="quillText"><%-blog.answer%></p>
             <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
-            <a href="/help/<%= blog._id%>">Read Full</a>
+            <a href="/help/<%= blog._id%>" target="_blank">Read Full</a>
         </div>
     </div>
 <% }); %>
 
-<h2 id="general">General</h2>
+<h2 class="category" id="general">General</h2>
 
 <% blogsGen.forEach(function(blog){ %>
     <div id="answers" class="ui styled fluid accordion">
@@ -41,11 +41,12 @@
         <div id="ans" class="content">
             <p id="quillText"><%-blog.answer%></p>
             <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+            <a href="/help/<%= blog._id%>" target="_blank">Read Full</a>
         </div>
     </div>
 <% }); %>
 
-<h2 id="wt15">WT15 Entries</h2>
+<h2 class="category" id="wt15">WT15 Entries</h2>
 
 <% blogswt15.forEach(function(blog){ %>
     <div id="answers" class="ui styled fluid accordion">
@@ -56,11 +57,12 @@
         <div id="ans" class="content">
             <p id="quillText"><%-blog.answer%></p>
             <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+            <a href="/help/<%= blog._id%>" target="_blank">Read Full</a>
         </div>
     </div>
 <% }); %>
 
-<h2 id="wt25">WT25 Entries</h2>
+<h2 class="category" id="wt25">WT25 Entries</h2>
 
 <% blogswt25.forEach(function(blog){ %>
     <div id="answers" class="ui styled fluid accordion">
@@ -71,11 +73,12 @@
         <div id="ans" class="content">
             <p id="quillText"><%-blog.answer%></p>
             <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+            <a href="/help/<%= blog._id%>" target="_blank">Read Full</a>
         </div>
     </div>
 <% }); %>
 
-<h2 id="ht25">HT25 Entries</h2>
+<h2 class="category" id="ht25">HT25 Entries</h2>
 
 <% blogsht25.forEach(function(blog){ %>
     <div id="answers" class="ui styled fluid accordion">
@@ -86,13 +89,13 @@
         <div id="ans" class="content">
             <p id="quillText"><%-blog.answer%></p>
             <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+            <a href="/help/<%= blog._id%>" target="_blank">Read Full</a>
         </div>
     </div>
-    <!-- this console.log is to see that we're getting the attributes for products, and we are. but idk how to target them. -->
-<% console.log(blog.products)}); %>
+<% }); %>
 
 
-<h2 id="hub">Bluetooth Hub Entries</h2>
+<h2 class="category" id="hub">Bluetooth Hub Entries</h2>
 
 <% blogsHub.forEach(function(blog){ %>
     <div id="answers" class="ui styled fluid accordion">
@@ -103,11 +106,10 @@
         <div id="ans" class="content">
             <p id="quillText"><%-blog.answer%></p>
             <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+            <a href="/help/<%= blog._id%>" target="_blank">Read Full</a>
         </div>
     </div>
 <% }); %>
-
-
 
 <script>
     $('.ui.accordion').accordion();

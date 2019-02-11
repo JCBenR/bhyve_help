@@ -7,9 +7,11 @@
 <h2>Which Product(s) is this question applicable to</h2>
 <p>Select at least one</p>
 <!-- Product Selection Area -->
+<form class="ui form" action="/help/<%= blog._id %>?_method=PUT" method="POST">
+
 <div class="ui form">
     <div class="field">
-        <select multiple class="ui dropdown" name="cat" id="cat">
+        <select multiple class="ui dropdown" name="blog[products]" id="products">
             <option value="General">General</option>
             <option value="HT25">HT25</option>
             <option value="WT15">WT15</option>
@@ -20,35 +22,49 @@
 </div>
 
 <!-- Question Section -->
-    <div class="ui fluid container">
-        <div class="ui form">
-            <div class="field">
-                <label for="question"><h2 class="headlabel">Question Being Answered</h2></label>   
-                <input name="question" id="question1" placeholder="enter question here" value="<%=blog.question%>"></input>
-            </div>
+<div class="ui fluid container">
+    <div class="ui form">
+        <div class="field">
+            <label for="blog[question]"><h2 class="headlabel">Question Being Answered</h2></label>  
+            <input type="text" name="blog[question]" value="<%=blog.question%>"> 
+        </div>    
+    </div>
+</div>
+
+
+<!-- <div class="ui fluid container">
+    <div class="ui form">
+        <div class="field">
+            <label for="question"><h2 class="headlabel">Question Being Answered</h2></label>   
+            <input name="question" id="question1" placeholder="enter question here" value="<%=blog.question%>"></input>
         </div>
     </div>
+</div> -->
 
 <!-- Quill JS Editor -->
-    <div id="ql-box" class="ui fluid form">
-        <label><h2 class="headlabel">Response</h2></label>
-        <div id="editor" name="answer">
-            <%-blog.answer%>
-        </div>
-    </div>
+<div id="ql-box" class="ui fluid form">
+    <label for="blog[answer]"><h2 class="headlabel">Response</h2></label>
+    <input type="hidden" name="blog[answer]" id="answer">
+    <div id="editor">
+        <%-blog.answer%>
+</div>
+</div>
     
-    <!-- Make Live Section -->
-    <div class="ui toggle checkbox" id="makelive">
-        <input type="checkbox" name="display" value="<%=blog.display%>" id="check1">
-        <label><h2>Make Live?</h2></label>
-    </div>
+<!-- Make Live Section -->
 
-    <!-- Save & Delete Buttons -->
-    <div id="button-box">
-        <button class="ui positive basic button" onclick="test2ab()">Save</button>
-        <button class="ui negative basic button">Delete</button>
+<div class="ui selection dropdown">
+    <input type="hidden" name="blog[display]">
+    <i class="dropdown icon"></i>
+    <div id="display" class="default text"></div>
+    <div class="menu">
+        <div class="item" data-value="1">Active</div>
+        <div class="item" data-value="0">Not Active</div>
     </div>
+</div>
 
+<!-- Save & Delete Buttons -->
+<input type="submit" class="ui green big basic button">
+</form>
 <script>
     $('.ui.dropdown').dropdown();
 </script>
