@@ -6,7 +6,6 @@
 
 <h2>Which Product(s) is this question applicable to</h2>
 <p>Select at least one</p>
-<form action="/help/<%=blog._id%>?_method=PUT" method="POST">
 <!-- Product Selection Area -->
 <div class="ui form">
     <div class="field">
@@ -46,11 +45,9 @@
 
     <!-- Save & Delete Buttons -->
     <div id="button-box">
-        <button class="ui positive basic button" type="submit">Save</button>
+        <button class="ui positive basic button" onclick="test2ab()">Save</button>
         <button class="ui negative basic button">Delete</button>
     </div>
-
-</form>
 
 <script>
     $('.ui.dropdown').dropdown();

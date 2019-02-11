@@ -88,8 +88,6 @@ app.get("/help/new", function(req, res){
 
 //POST ROUTE
 app.post("/help/new", function(req,res){
-    console.log('res body:', res.body);
-    console.log('req body:', req.body);
     // res.send({
     //     type: "POST",
     //     title: req.body.title,
@@ -101,7 +99,6 @@ app.post("/help/new", function(req,res){
         answer: req.body.body,
         display: req.body.live
     });
-    console.log(newPost2);
     newPost2.save();
     res.redirect("/help");
 });
@@ -110,7 +107,6 @@ app.post("/help/new", function(req,res){
 app.get("/help/:id", function(req, res){
     Blog.findById(req.params.id, function(err, foundBlog){
         if(err){
-            console.log(err);
             res.redirect("/help");
         } else { 
             res.render("show", {blog: foundBlog})
@@ -131,16 +127,18 @@ app.get("/help/:id/edit", function(req, res){
 
 //UPDATE ROUTE
 app.put("/help/:id", function(req, res){
-    console.log('res body:', res.body);
-    console.log('req body:', req.body.answer);
-    Blog.findOneAndUpdate({ _id: req.params.id }, req.body, { overwrite:true }, (err, updatedBlog)=>{
-        if(err){
-            console.log(err);
-        } else {
-            console.log(updatedBlog);
-            res.redirect("/help/:id");
-        }
-    });
+    Blog.findOneAndUpdate({_id: "5c5b4edfb4508702dfcdec0d"}, req.body);
+
+    console.log('req.params:', req.params);
+    console.log('req.body:', req.body)
+    // Blog.findOneAndUpdate({ _id: '5c52613ba0bb6b08666768a7' }, req.body, { overwrite:true }, (err, updatedBlog)=>{
+    //     if(err){
+    //         console.log('update route error', err);
+    //     } else {
+    //         console.log(updatedBlog);
+    //         res.redirect("/help/:id");
+    //     }
+    // });
 });
 
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));
