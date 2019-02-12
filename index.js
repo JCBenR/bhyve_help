@@ -130,4 +130,17 @@ app.put("/help/:id", function(req, res){
     });
 });
 
+// DELETE ROUTE
+app.delete("/help/:id", function(req, res){
+//DESTORY BLOG
+    Blog.findByIdAndRemove(req.params.id, function(err){
+        if(err){
+            console.log(err);
+        } else {
+            res.redirect("/help");
+        }
+    });
+});
+
+
 app.listen(port, () => console.log(`bhyve_help APP IS NOW RUNNING ON PORT ${port}`));

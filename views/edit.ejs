@@ -65,6 +65,10 @@
 <!-- Save & Delete Buttons -->
 <input type="submit" class="ui green big basic button">
 </form>
+<form action="/help/<%= blog._id %>?_method=DELETE" method="post">
+    <button class="ui negative basic button" id="delete">DELETE</button>
+</form>
+
 <script>
     $('.ui.dropdown').dropdown();
 </script>

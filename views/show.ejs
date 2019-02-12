@@ -4,6 +4,10 @@
     <div class="ui top attached">
         <p id="quillText"><%-blog.answer%></p>
         <p><strong>Last Updated:</strong> <%=blog.date.toDateString()%></p>
+        <a class="ui orange basic button" href="/help/<%=blog._id%>/edit">EDIT</a>
+        <!-- <form action="/help/<%= blog._id %>?_method=DELETE" method="post">
+            <button class="ui negative basic button">DELETE</button>
+        </form> -->
     </div>
 </div>
 
